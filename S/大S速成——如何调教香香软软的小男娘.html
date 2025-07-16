@@ -1,0 +1,618 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --select-text-bg-color: #B5D6FC; --select-text-font-color: auto; --monospace: "Lucida Console",Consolas,"Courier",monospace; --title-bar-height: 20px; }
+.mac-os-11 { --title-bar-height: 28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+h1, h2, h3, h4, h5 { white-space: pre-wrap; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; position: relative; }
+#write svg h1, #write svg h2, #write svg h3, #write svg h4, #write svg h5, #write svg h6, #write svg p { position: static; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; border-color: transparent !important; padding-top: 0px !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  #write > p:nth-child(1) { margin-top: 0px; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+  figure { overflow-x: visible; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.mermaid-svg { margin: auto; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex: 2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; overflow-wrap: anywhere; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+.md-alert.md-alert-note { border-left-color: rgb(9, 105, 218); }
+.md-alert.md-alert-important { border-left-color: rgb(130, 80, 223); }
+.md-alert.md-alert-warning { border-left-color: rgb(154, 103, 0); }
+.md-alert.md-alert-tip { border-left-color: rgb(31, 136, 61); }
+.md-alert.md-alert-caution { border-left-color: rgb(207, 34, 46); }
+.md-alert { padding: 0px 1em; margin-bottom: 16px; color: inherit; border-left: 0.25em solid rgb(0, 0, 0); }
+.md-alert-text-note { color: rgb(9, 105, 218); }
+.md-alert-text-important { color: rgb(130, 80, 223); }
+.md-alert-text-warning { color: rgb(154, 103, 0); }
+.md-alert-text-tip { color: rgb(31, 136, 61); }
+.md-alert-text-caution { color: rgb(207, 34, 46); }
+.md-alert-text { font-size: 0.9rem; font-weight: 700; }
+.md-alert-text svg { fill: currentcolor; position: relative; top: 0.125em; margin-right: 1ch; overflow: visible; }
+.md-alert-text-container::after { content: attr(data-text); text-transform: capitalize; pointer-events: none; margin-right: 1ch; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.mac-os #write{
+    caret-color: AccentColor;
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>大S速成——如何调教香香软软的小男娘 - 副本</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='大s速成------如何调教香香软软的小男娘'><span>大S速成——如何调教香香软软的小男娘</span></h1><p><span>编者：佚名（转载于：</span><a href='https://github.com/HongYunCloud/OpenDomGuide' target='_blank' class='url'>https://github.com/HongYunCloud/OpenDomGuide</a><span>）</span></p><p><span>MD重构：class-bin-data</span></p><h2 id='目录'><span>目录</span></h2><div class='md-toc' mdtype='toc'><p class="md-toc-content" role="list"><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n0"><a class="md-toc-inner" href="#大s速成------如何调教香香软软的小男娘">大S速成——如何调教香香软软的小男娘</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n4"><a class="md-toc-inner" href="#目录">目录</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n314"><a class="md-toc-inner" href="#前言">前言</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n5"><a class="md-toc-inner" href="#这篇教程面向哪些人">这篇教程面向哪些人？</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n14"><a class="md-toc-inner" href="#这篇教程会不会有错误">这篇教程会不会有错误？</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n18"><a class="md-toc-inner" href="#这篇教程的特点是什么">这篇教程的特点是什么？</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n22"><a class="md-toc-inner" href="#第一部分-开始前的准备">第一部分 开始前的准备</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n23"><a class="md-toc-inner" href="#时间准备">时间准备</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n25"><a class="md-toc-inner" href="#物资准备">物资准备</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n27"><a class="md-toc-inner" href="#男用贞操锁">男用贞操锁</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n42"><a class="md-toc-inner" href="#约束用品">约束用品</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n48"><a class="md-toc-inner" href="#惩罚用道具">惩罚用道具</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n52"><a class="md-toc-inner" href="#其他道具">其他道具</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n54"><a class="md-toc-inner" href="#第二部分-关系的建立">第二部分 关系的建立</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n55"><a class="md-toc-inner" href="#day-1">Day 1</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n61"><a class="md-toc-inner" href="#背景知识">背景知识</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n66"><a class="md-toc-inner" href="#契约的建立">契约的建立</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n75"><a class="md-toc-inner" href="#技巧练习">技巧练习</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n104"><a class="md-toc-inner" href="#day-2">Day 2</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n108"><a class="md-toc-inner" href="#潜意识信任度建立">潜意识信任度建立</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n114"><a class="md-toc-inner" href="#day-3">Day 3</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n122"><a class="md-toc-inner" href="#day-4-5">Day 4-5</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n126"><a class="md-toc-inner" href="#避免外出">避免外出</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n128"><a class="md-toc-inner" href="#勾起性欲">勾起性欲</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n131"><a class="md-toc-inner" href="#day-6">Day 6</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n134"><a class="md-toc-inner" href="#day-7">Day 7</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n161"><a class="md-toc-inner" href="#玩弄你的m">玩弄你的M</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n168"><a class="md-toc-inner" href="#锁好">锁好</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n171"><a class="md-toc-inner" href="#day-8-9">Day 8-9</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n173"><a class="md-toc-inner" href="#背景知识-2">背景知识</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n174"><a class="md-toc-inner" href="#人和人之间的亲密度是怎么刷的">人和人之间的亲密度是怎么刷的？</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n184"><a class="md-toc-inner" href="#day-10">Day 10</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n191"><a class="md-toc-inner" href="#假装玩弄你的m">假装玩弄你的M</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n198"><a class="md-toc-inner" href="#禁欲">禁欲</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n200"><a class="md-toc-inner" href="#day-11-12">Day 11-12</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n201"><a class="md-toc-inner" href="#背景知识-3">背景知识</a></span><span role="listitem" class="md-toc-item md-toc-h5" data-ref="n202"><a class="md-toc-inner" href="#榨精是什么">榨精是什么？</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n204"><a class="md-toc-inner" href="#技巧练习-2">技巧练习</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n233"><a class="md-toc-inner" href="#day-13">Day 13</a></span><span role="listitem" class="md-toc-item md-toc-h4" data-ref="n234"><a class="md-toc-inner" href="#榨精">榨精</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n242"><a class="md-toc-inner" href="#第三部分-你的主场">第三部分 你的主场</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n246"><a class="md-toc-inner" href="#奖惩手法小结">奖惩手法小结</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n278"><a class="md-toc-inner" href="#基本行事逻辑">基本行事逻辑</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n290"><a class="md-toc-inner" href="#其他">其他</a></span><span role="listitem" class="md-toc-item md-toc-h2" data-ref="n293"><a class="md-toc-inner" href="#附录">附录</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n295"><a class="md-toc-inner" href="#寸止">寸止</a></span><span role="listitem" class="md-toc-item md-toc-h3" data-ref="n298"><a class="md-toc-inner" href="#排泄控制">排泄控制</a></span><span role="listitem" class="md-toc-item md-toc-h1" data-ref="n309"><a class="md-toc-inner" href="#完">完</a></span></p></div><h2 id='前言'><span>前言</span></h2><h3 id='这篇教程面向哪些人'><span>这篇教程面向哪些人？</span></h3><div class="md-alert md-alert-warning warning"><p><span class='md-alert-text md-alert-text-warning'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</span><br></p><p><span>如果您没有S属性，请立即终止阅读本篇教程... </span></p><p><span>并把它发给一个能够欺负你的朋友... </span></p><p><span>或许后面会有一个能够自嗨的版本？</span></p><p><span>但是阅读本教程会使您失去乐趣...</span></p></div><p><span>	</span><span>本教程是对数篇教程（1, 2, 3 等）的整合，并补注了诸多来自更专业的渠道的健康建议（1, 2, 3 等），面向</span><strong><span>有同居新手男M的新手男S的入门向教程。</span></strong></p><p><span>	</span><span>本教程结合了</span><strong><span>PUA</span></strong><span>技巧和</span><strong><span>SM</span></strong><span>技巧，旨在让你的M在短短一个月内对你高度信任并愿意持续地接受你 的玩弄。</span></p><h3 id='这篇教程会不会有错误'><span>这篇教程会不会有错误？</span></h3><p><span>	</span><span>当然有可能有。编者被选中编撰本教程纯粹是因为编者的笔风最科班，但是事实上编者是一个SM小 白。除此之外，本教程充斥着未经同行评审的参考文献与编者朋友（有S有M）的个人经验。本教程亦未 经任何具有行医资格证的医生审阅，亦不属于医疗建议。当您感到身体不适时，请务必求助于专业的医 生；如果当您的医生提出了与本教程相冲突的医嘱时，请遵医嘱。</span></p><p><span>	</span><span>编者在此声明，在阅读本教程前，您需要全面、完整地了解可能面临的风险以及避免风险的措施， 对风险防范措施有充分掌握，为具有完全民事行为能力人；因尝试本教程中的行为所导致的人身损害和/ 或其他可能后果，应由行为者独立承担，编者对此不负任何责任。</span></p><p><span>	</span><span>除此之外，如果您发现了本教程的错误，请务必反馈。感谢！</span></p><h3 id='这篇教程的特点是什么'><span>这篇教程的特点是什么？</span></h3><p><span>	</span><span>首先，本教程按照时间线而非知识点编排了需要的知识，对于新手S而言学习难度更低。（就像常见 的教材一样...） </span></p><p><span>	</span><span>此外，本教程的编者是科班出身的程序员，因此不会出现前面没说，后面直接冒出一个没有准备好 的道具/技术的情况，对于初学者而言更加友好。</span></p><p><span>	</span><span> 最后，本教程使用Bookora编写，色彩鲜明，要点突出，没有过多的无关内容，看上去更像是教科 书而不是小说。</span></p><h2 id='第一部分-开始前的准备'><span>第一部分 开始前的准备</span></h2><h3 id='时间准备'><span>时间准备</span></h3><p><span>	</span><span>请确保自己能够有一个月的时间能够与自己的M独处....</span></p><h3 id='物资准备'><span>物资准备</span></h3><p><span>	</span><span>准备好了？请准备好以下物品。</span></p><h4 id='男用贞操锁'><span>男用贞操锁</span></h4><div class="md-alert md-alert-tip tip"><p><span class='md-alert-text md-alert-text-tip'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</span><br></p><p><span>贞操锁是所谓的【射精管理】的最核心的道具；而【射精管理】本身是一种最重要的调教手段。 可以说，贞操锁是最重要的调教道具。</span></p></div><div class="md-alert md-alert-note note"><p><span class='md-alert-text md-alert-text-note'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</span><br></p><p><span>可以让M自己选噢~？</span></p></div><p><span>	</span><span>对于新手，推荐使用平板锁。主要原因有：</span></p><p><span>		</span><span>1、存在恰到好处的异物感，并且不像负数锁那样会疼</span></p><p><span>		</span><span>2、戴上后穿着裤子看不出来，避免社死</span></p><p><span>		</span><span>3、非常轻便，不需要辅助带</span></p><div class="md-alert md-alert-caution caution"><p><span class='md-alert-text md-alert-text-caution'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Caution</span><br></p><p><span>本教程中，贞操锁被当作长期佩戴的调教道具，而不是短时间使用的小玩具。</span></p><p><span>务必不要使用导尿管以避免感染。</span></p></div><h4 id='约束用品'><span>约束用品</span></h4><p><span>	</span><span>如果预算有限，编者推荐选择：分腿器一个（需配大腿环*2，长度在30cm左右最佳，务必结实）， 项圈一个，手铐一副，锁链一条，挂锁2个（锁链到项圈一个，到柱子一个）。</span></p><p><span>	</span><span>但是如果条件许可，大型的玩具（例如X字架）也是极好的噢...</span></p><div class="md-alert md-alert-note note"><p><span class='md-alert-text md-alert-text-note'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</span><br></p><p><span>男孩子不适合骑三角木马啦...</span></p></div><h4 id='惩罚用道具'><span>惩罚用道具</span></h4><p><span>	</span><span>玻璃假阳具两个（榨精用，粗细无所谓；最好选取尽可能直的，长度至少要有20cm</span></p><p><span>	</span><span>冰块适量（正常的冰箱里面就可以冻） </span></p><p><span>	</span><span>其他你喜欢的玩具（例如电击器）</span></p><h4 id='其他道具'><span>其他道具</span></h4><p><span>	</span><span>润滑液适量</span></p><h2 id='第二部分-关系的建立'><span>第二部分 关系的建立</span></h2><h3 id='day-1'><span>Day 1</span></h3><div class="md-alert md-alert-caution caution"><p><span class='md-alert-text md-alert-text-caution'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Caution</span><br></p><p><span>除非另行说明，否则不要给你的M阅读本教程的任意部分或转述其内容。</span></p><p><span>此规则适用于全部内容而非仅仅是本小节。</span></p></div><p><span>	</span><span>最忙的一天...</span></p><h4 id='背景知识'><span>背景知识</span></h4><p><strong><span>最适合新手的调教男M的方法是什么？</span></strong></p><p><span>	</span><span>是让你的M佩戴贞操锁。这样一来，对方无法自己射精，而性欲的积累便会转化为对主人的依赖。</span></p><p><strong><span>龟头责的特点是什么？</span></strong></p><p><span>	</span><span>只通过摩擦刺激龟头，而不挤压刺激海绵体与系带，即可在避免高潮并进入不应期的同时获得快 感。</span></p><h4 id='契约的建立'><span>契约的建立</span></h4><div class="md-alert md-alert-tip tip"><p><span class='md-alert-text md-alert-text-tip'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</span><br></p><p><span>	</span><span>正如绝大多数文学作品中描述的，请与你的M签订主仆契约。契约的内容可以直接从各种小说中复 制...反正怎么涩怎么来就行了... </span></p></div><p><span>	</span><span>让你的M当着你的面自慰一次，或者用任何方法将他弄高潮一次。（为了同步时间轴）</span></p><p><span>	</span><span>在此之后锁上贞操锁，告诉他，在Day3可以高潮。</span></p><div class="md-alert md-alert-note note"><p><span class='md-alert-text md-alert-text-note'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</span><br></p><p><span>对着M就不要说Day3啦...说“后天”就行了。</span></p></div><h4 id='技巧练习'><span>技巧练习</span></h4><div class="md-alert md-alert-warning warning"><p><span class='md-alert-text md-alert-text-warning'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</span><br></p><p><span>不要让你的M看到你练习的过程</span></p></div><p><span>	</span><span>你不会以为自己可以休息了吧？呕。</span></p><p><span>	</span><span>请使用自己的身体练习以下技巧：</span></p><ul><li><p><span>不夹腿的情况下，只用一只手把自己快速弄射精</span></p><ul><li><p><span>如果可能，请使用左手，这是因为，别人的阴茎毕竟不是自己的...会难一些... </span></p></li><li><p><span>必须使用手是因为，手作为你身体的一部分，更能让M移情于你。</span></p></li></ul></li><li><p><span>在上述过程结束后，练习龟头责</span></p><ul><li><p><span>只刺激龟头会有一种...难受与快感并存的感觉；如果只是单纯的疼，就说明手法不正 确。轻一点吧。 </span></p></li><li><p><span>如果射出来了，就更说明手法不正确了。用一张餐巾纸，沿长边对折以把龟头夹在中 间；用手拉住两端左右拉动，仔细体会这种感觉。试着用手来模拟这种感觉，而不是 按压。 </span></p></li><li><p><span>你毕竟不需要真的责自己，所以甚至可以摸一下停一会。当然，如果你喜欢的话...也 不是不可以... </span></p></li><li><p><span>尽可能在贤者时间结束后不那么敏感的时期练习，仍然是因为别人的阴茎毕竟不是自 己的...会难一些..</span></p></li></ul></li></ul><p><span>	</span><span>如果你已经会了，可以跳过这一环节。否则，你有一个星期的时间来练习以上技巧。</span></p><div class="md-alert md-alert-important important"><p><span class='md-alert-text md-alert-text-important'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M0 1.75C0 .784.784 0 1.75 0h12.5C15.216 0 16 .784 16 1.75v9.5A1.75 1.75 0 0 1 14.25 13H8.06l-2.573 2.573A1.458 1.458 0 0 1 3 14.543V13H1.75A1.75 1.75 0 0 1 0 11.25Zm1.75-.25a.25.25 0 0 0-.25.25v9.5c0 .138.112.25.25.25h2a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h6.5a.25.25 0 0 0 .25-.25v-9.5a.25.25 0 0 0-.25-.25Zm7 2.25v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 9a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Important</span><br></p><p><span>	</span><span>如果你正在阅读这段文本，哪怕调教没有开始，你也可以开始练习了。不要以为我不知道你会提前 看课本.jpg</span></p></div><h3 id='day-2'><span>Day 2</span></h3><div class="md-alert md-alert-tip tip"><p><span class='md-alert-text md-alert-text-tip'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</span><br></p><p><span>如果喜欢外出play，请趁今天。</span></p></div><h4 id='潜意识信任度建立'><span>潜意识信任度建立</span></h4><p><span>	</span><span>多摸摸/挠挠你的M吧。接触一个与自己没什么肉体接触的人容易让人发痒。在后续的调教过程中笑 场了可就不好玩了... </span></p><p><span>	</span><span>避免这一情况的方法就是让他在潜意识中觉得你是和他亲近的人，而最简单的办法便是多摸摸/挠挠 他。</span></p><p><span>	</span><span>不在Day1开始是因为Day1他往往过于兴奋...以至于会呈现出虚假的潜意识熟悉感。 </span></p><p><span>	</span><span>此过程可以在你挠他的痒，而他不怎么感到痒时结束。</span></p><p><span>	</span><span>此过程没有严格的结束时间，如果今天无法完成此工作，可以拖延到最迟Day7。</span></p><h3 id='day-3'><span>Day 3</span></h3><div class="md-alert md-alert-note note"><p><span class='md-alert-text md-alert-text-note'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</span><br></p><p><span>这是为了避免让你的M产生“根据规则，我可以获得奖励”的想法... </span></p><p><span>只有</span><strong><span>主人</span></strong><span>而不是</span><strong><span>规则</span></strong><span>能奖励他。</span></p></div><p><span>	</span><span>假装忘记了你在Day1提到的他可以高潮的事。</span></p><p><span>	</span><span>他会自己提的。 此时告诉他，你没有忘记；而作为他敢索要高潮的惩罚，禁欲时间延长到Day6。</span></p><p>&nbsp;</p><h3 id='day-4-5'><span>Day 4-5</span></h3><div class="md-alert md-alert-tip tip"><p><span class='md-alert-text md-alert-text-tip'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</span><br></p><p><span>如果喜欢女装/k9/furry/kig之类的倒是可以玩玩的噢...</span></p></div><h4 id='避免外出'><span>避免外出</span></h4><p><span>	</span><span>避免在禁欲超过3天时外出...否则时不时的勃起会导致贞操锁卡肉，不仅难受，万一划破了也容易发炎。</span></p><h4 id='勾起性欲'><span>勾起性欲</span></h4><p><span>	</span><span>可以和他一起看看AV什么的...</span></p><p><span>	</span><span>题材务必不要选择女同。要让你的M看到男性射精的场景，然后意识到自己不能射精，产生落差感...</span></p><h3 id='day-6'><span>Day 6</span></h3><p><span>	</span><span>今天还不能开锁</span></p><p><span>	</span><span>这次他应该会很乖的...当然，如果他又主动提了，你可以再一次说+3...UNO（不是）</span></p><h3 id='day-7'><span>Day 7</span></h3><div class="md-alert md-alert-warning warning"><p><span class='md-alert-text md-alert-text-warning'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</span><br></p><p><span>无论Day6是否说了延长三天，今天都要让你的M高潮一次。 超过一个星期不高潮对于新手来说确实过于严厉了。</span></p></div><p><span>	</span><span>可以开锁了！</span></p><div class="md-alert md-alert-warning warning"><p><span class='md-alert-text md-alert-text-warning'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</span><br></p><p><span>务必使用分腿器+大腿环，不要让你的M通过夹腿提前高潮了。</span></p><p><span>如果要玩后面，请先让你的M高潮，再玩。</span></p></div><div class="md-alert md-alert-caution caution"><p><span class='md-alert-text md-alert-text-caution'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Caution</span><br></p><p><span>绝对禁止选择不在地面上的物品（例如门框的顶部）来锁定链子。 运动激烈，非常容易发生意外。</span></p></div><div class="md-alert md-alert-tip tip"><p><span class='md-alert-text md-alert-text-tip'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</span><br></p><p><span>如果是其他大型的玩具请参照流程即可</span></p></div><p><span>	</span><span>无论是因为过于激烈，还是因为早有预谋，M都倾向于在长时间的禁锢后反抗自己的S... </span><span>	</span><span>请按照以下顺序操作： </span></p><ol start='' ><li><p><span>扒光 </span></p></li><li><p><span>双手拷在背后并锁好，在大腿靠近膝关节处安装分腿器并锁好</span></p></li><li><p><span>套上项圈，用链子将项圈锁在相对固定的地方，例如大床的床脚</span></p></li><li><p><span>将上述用到的钥匙放在你的M伸手够不到的地方</span></p></li><li><p><span>打开贞操锁</span></p></li></ol><h4 id='玩弄你的m'><span>玩弄你的M</span></h4><div class="md-alert md-alert-note note"><p><span class='md-alert-text md-alert-text-note'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</span><br></p><p><span>新手不推荐考虑寸止（附录中有），难度较高。</span></p><p><span>龟头责就可以了。</span></p></div><p><span>	</span><span>还记得Day1中你练习过的技巧吗...先责（一到二个小时左右），再高潮，然后...可以乱玩了... </span></p><p><span>	</span><span>（天呐？你说你不会？！那你当什么S，给我把项圈带上，你来当M，先来给我把这摊东西舔干净）</span></p><h4 id='锁好'><span>锁好</span></h4><p><span>	</span><span>玩完了就可以锁好贞操锁了...然后解开拘束... </span></p><p><span>	</span><span>告诉他Day10可以再次解开</span></p><h3 id='day-8-9'><span>Day 8-9</span></h3><p><span>	</span><span>可以聊一些很正常的话题了...增进增进感情是极好的</span></p><h4 id='背景知识-2'><span>背景知识</span></h4><h5 id='人和人之间的亲密度是怎么刷的'><span>人和人之间的亲密度是怎么刷的？</span></h5><p><span>	</span><span>主要是刷三个东西： </span></p><ol start='' ><li><p><span>连续在一起的时间 </span></p></li><li><p><span>在一起时的最美好的体验 </span></p></li><li><p><span>在一起时干过的东西的数量</span></p></li></ol><p><span>	</span><span>现在，连续在一起的时间能有差不多一个月；没有什么比高潮更美好的体验了；因此，如果希望继 续刷亲密度就应该干尽可能多的事情，例如看电影，逛超市，去野餐等。人倾向于把一类事情自动归 并，因此总是涩涩/聊天等是不能增进感情到最高级别的...</span></p><h3 id='day-10'><span>Day 10</span></h3><div class="md-alert md-alert-tip tip"><p><span class='md-alert-text md-alert-text-tip'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M8 1.5c-2.363 0-4 1.69-4 3.75 0 .984.424 1.625.984 2.304l.214.253c.223.264.47.556.673.848.284.411.537.896.621 1.49a.75.75 0 0 1-1.484.211c-.04-.282-.163-.547-.37-.847a8.456 8.456 0 0 0-.542-.68c-.084-.1-.173-.205-.268-.32C3.201 7.75 2.5 6.766 2.5 5.25 2.5 2.31 4.863 0 8 0s5.5 2.31 5.5 5.25c0 1.516-.701 2.5-1.328 3.259-.095.115-.184.22-.268.319-.207.245-.383.453-.541.681-.208.3-.33.565-.37.847a.751.751 0 0 1-1.485-.212c.084-.593.337-1.078.621-1.489.203-.292.45-.584.673-.848.075-.088.147-.173.213-.253.561-.679.985-1.32.985-2.304 0-2.06-1.637-3.75-4-3.75ZM5.75 12h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1 0-1.5ZM6 15.25a.75.75 0 0 1 .75-.75h2.5a.75.75 0 0 1 0 1.5h-2.5a.75.75 0 0 1-.75-.75Z"></path></svg>Tip</span><br></p><p><span>不需要控制表情，越是一脸坏笑效果越好。</span></p></div><div class="md-alert md-alert-note note"><p><span class='md-alert-text md-alert-text-note'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</span><br></p><p><span>可以提前取出冰块藏在附近</span></p></div><h4 id='假装玩弄你的m'><span>假装玩弄你的M</span></h4><div class="md-alert md-alert-warning warning"><p><span class='md-alert-text md-alert-text-warning'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</span><br></p><p><span>今天并不能真的玩弄你的M（不能让他射（高潮））</span></p></div><p><span>	</span><span>参考Day7的操作，当你解开贞操锁的一瞬间你的M将以为自己可以高潮了...会瞬间硬起来的 当责完了后，不要让他高潮...</span></p><p><span>	</span><span>相反地，从冰箱中取出冰块，冷敷使阴茎不再充血并重新锁好贞操锁。 这仍然是为了让他建立只有主人而不是贞操锁能让他无法高潮的意识。</span></p><p><span>	</span><span> 在此之后，告诉他Day13时他可以射精。</span></p><h4 id='禁欲'><span>禁欲</span></h4><p><span>	</span><span>今天你需要禁欲...</span></p><h3 id='day-11-12'><span>Day 11-12</span></h3><h4 id='背景知识-3'><span>背景知识</span></h4><h5 id='榨精是什么'><span>榨精是什么？</span></h5><p><span>	</span><span>榨精是通过物理挤压精囊，来在不高潮的前提下排出其中的精液的过程。这个过程不会有任何快感。</span></p><h4 id='技巧练习-2'><span>技巧练习</span></h4><div class="md-alert md-alert-caution caution"><p><span class='md-alert-text md-alert-text-caution'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Caution</span><br></p><p><span>禁止与你的M供用性用品。</span></p><p><span>有一些疾病是无法治疗的。</span></p></div><div class="md-alert md-alert-warning warning"><p><span class='md-alert-text md-alert-text-warning'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</span><br></p><p><span>不要让你的M看到你的练习过程。（再次强调）</span></p></div><div class="md-alert md-alert-note note"><p><span class='md-alert-text md-alert-text-note'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</span><br></p><p><span>哪怕你知道如何找到前列腺，也需要练习这个...</span></p></div><p><span>	</span><span>是的，你又有新东西要学了...真是遗憾... </span></p><p><span>	</span><span>还记得之前买的两个玻璃假阳具吗？拿出来一个，浸泡润滑油，然后请使用自己的身体练习以下技巧：</span></p><ul><li><h5 id='找精囊位置'><span>找精囊位置</span></h5><ul><li><p><span>可以参考这张解剖图。</span></p></li><li><p><img src="https://edge.sitecorecloud.io/mmanual-ssq1ci05/media/home/images/g/u/m/gu_male_reproductive_organs_zh.gif?thn=0&amp;sc_lang=zh" referrerpolicy="no-referrer" alt="img"></p></li><li><p><span>	</span><span> 当假阳具顶到一个（靠近前端的）突起时，用它戳两下。如果你</span><strong><span>未感到任何快感</span></strong><span>，但 是阴茎流出了一些分泌物，说明你找到的位置是正确的。 </span></p></li><li><p><span>	</span><span>如果你感到了快感，哪怕有分泌物，亦说明位置不正确。你找到的是前列腺。是</span><strong><span>突起</span></strong><span>，不是</span><strong><span>凹陷</span></strong><span>。</span></p></li><li><p><span>	</span><span>记住手感而不是体感。你不能感到你的M感到了什么。</span></p></li></ul></li></ul><p><span>	</span><span>失败的概率不大，因为精囊是最突出的部分，非常好找。 </span></p><p><span>	</span><span>在此之后，你可以销毁这根自己用的假阳具。</span></p><h3 id='day-13'><span>Day 13</span></h3><h4 id='榨精'><span>榨精</span></h4><div class="md-alert md-alert-warning warning"><p><span class='md-alert-text md-alert-text-warning'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</span><br></p><p><span>今天并不能真的玩弄你的M...</span></p></div><p><span>	</span><span>还记得你在Day10的承诺吗...今天，你需要让他射精...只不过是以榨精的方式。</span></p><p><span>	</span><span>请按照与Day7的方式将你的M束缚，不要取下贞操锁，并对其使用你刚刚学会的方法进行榨精... </span></p><p><span>	</span><span>取决于你的个人趣味，可以进行其他的play...</span></p><p>&nbsp;</p><h2 id='第三部分-你的主场'><span>第三部分 你的主场</span></h2><p><span>	</span><span>恭喜！至此，你已经学会并让你的M体验了所有必要的手法。</span></p><p><span>	</span><span>除此之外，上述日程表由某位不愿透露姓名的PUA领域专家调整并审阅，能够最大化地让你的M维 持对你的依赖与信任。 </span></p><p><span>	</span><span>剩下的半个月由你自行发挥了~</span></p><h3 id='奖惩手法小结'><span>奖惩手法小结</span></h3><div class="md-alert md-alert-note note"><p><span class='md-alert-text md-alert-text-note'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8Zm8-6.5a6.5 6.5 0 1 0 0 13 6.5 6.5 0 0 0 0-13ZM6.5 7.75A.75.75 0 0 1 7.25 7h1a.75.75 0 0 1 .75.75v2.75h.25a.75.75 0 0 1 0 1.5h-2a.75.75 0 0 1 0-1.5h.25v-2h-.25a.75.75 0 0 1-.75-.75ZM8 6a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Note</span><br></p><p><span>时机的存在是因为人们对时间的感知并不是很准，如果现在没有性欲，只会觉得...多带两天也无所谓 吧... </span></p><p><span>如果你的M真的在才戴锁1~2天时就真的很需要惩罚了，可以罚他下一次射精改成榨精... </span></p><p><span>否则最好忍忍他吧...皮其实是依赖的一种体现...</span></p><p><span>就像对着自己的母亲皮一下之类的...</span></p></div><div class="md-alert md-alert-warning warning"><p><span class='md-alert-text md-alert-text-warning'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</span><br></p><p><span>不要将允许手淫当作奖励的一种。</span></p></div><p><span>【目前不知道龟头责具体属于哪种更合适... </span></p><p><span>具体来说，我的某位大M朋友喜欢故意惹他的S生气以换取龟头责...】</span></p><p><span>以下的手法使用时机一般都在</span><strong><span>带锁超过三天时</span></strong><span>的情况下。</span></p><figure class='table-figure'><table><thead><tr><th style='text-align:center;' ><span>手法</span></th><th><span>类别</span></th></tr></thead><tbody><tr><td style='text-align:center;' ><span>延长带锁时间一天</span></td><td><span>一般惩罚</span></td></tr><tr><td style='text-align:center;' ><span>减少带锁时间一天</span></td><td><span>一般奖励</span></td></tr><tr><td style='text-align:center;' ><span>榨精</span></td><td><span>严厉惩罚</span></td></tr><tr><td style='text-align:center;' ><span>允许射精</span></td><td><span>巨大奖励</span></td></tr><tr><td style='text-align:center;' ><span>龟头责</span></td><td><span>不好说...</span></td></tr></tbody></table></figure><h3 id='基本行事逻辑'><span>基本行事逻辑</span></h3><ol start='' ><li><p><span>对于任意时刻，如果你的男M已经连续7天没有射精了，要么允许高潮一次，要么榨精一次，取 决于他的表现。 </span></p></li><li><p><span>对于任意时刻，如果你的男M在3天内射精过，既不要允许高潮，也不要榨精。</span></p></li><li><p><span>在奖励高潮前必须龟头责；玩弄后庭必须在奖励高潮后。不能让你的男M将榨精和性欲关联起 来（不能在榨精后允许前高）</span></p></li><li><p><span>高潮是你给以的奖励，榨精是你给与的惩罚。</span></p></li><li><p><span>为了建立条件反射，解开贞操锁或榨精前必须按照完全相同的方法进行捆绑。</span></p></li></ol><h3 id='其他'><span>其他</span></h3><p><span>	</span><span>哪怕你不是为了当一个好S，坚持在初见的一个月内不出格也是必要的。沉没时间与情绪成本 以一个月为界限，超过一个月后要是想要与一个人断绝关系是非常困难的。</span></p><p><span>	</span><span>一般来说推荐将允许射精间隔设置在4天左右，7天其实是很严厉（仅次于榨精）的惩罚了...教 程中选取7天其实是利用了多个心理效应（例如初见效应、立威效应等）。</span></p><h2 id='附录'><span>附录</span></h2><p><span>	</span><span>以下备注一些更为进阶的玩法，但是不要在这个月结束前进行尝试</span></p><h3 id='寸止'><span>寸止</span></h3><p><span>	</span><span>其实存止较难主要是因为需要参与者的配合。寸止的基本玩法是告诉自己的M，</span></p><p><span>	</span><span> “要高潮了就说，你说了我会停，然后你自己忍者，一分钟后我会继续；为了防止你骗我停下，如果你说要高潮了并且我没有停下，在接下来的两分钟内你没有高潮，那么你今天就别高潮了（锁回去，再 忍三天吧）；为了防止你骗我不停下，如果你要高潮了没有说，那么接下来的两次高潮改成榨精。”</span></p><h3 id='排泄控制'><span>排泄控制</span></h3><div class="md-alert md-alert-warning warning"><p><span class='md-alert-text md-alert-text-warning'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M6.457 1.047c.659-1.234 2.427-1.234 3.086 0l6.082 11.378A1.75 1.75 0 0 1 14.082 15H1.918a1.75 1.75 0 0 1-1.543-2.575Zm1.763.707a.25.25 0 0 0-.44 0L1.698 13.132a.25.25 0 0 0 .22.368h12.164a.25.25 0 0 0 .22-.368Zm.53 3.996v2.5a.75.75 0 0 1-1.5 0v-2.5a.75.75 0 0 1 1.5 0ZM9 11a1 1 0 1 1-2 0 1 1 0 0 1 2 0Z"></path></svg>Warning</span><br></p><p><span>排尿控制是非常危险的。</span></p><p><span>禁止当你不在你的M身边时你的M不能排尿的场景。</span></p></div><div class="md-alert md-alert-caution caution"><p><span class='md-alert-text md-alert-text-caution'><svg viewBox="0 0 16 16" version="1.1" width="1em" height="1em" aria-hidden="true"><path d="M4.47.22A.749.749 0 0 1 5 0h6c.199 0 .389.079.53.22l4.25 4.25c.141.14.22.331.22.53v6a.749.749 0 0 1-.22.53l-4.25 4.25A.749.749 0 0 1 11 16H5a.749.749 0 0 1-.53-.22L.22 11.53A.749.749 0 0 1 0 11V5c0-.199.079-.389.22-.53Zm.84 1.28L1.5 5.31v5.38l3.81 3.81h5.38l3.81-3.81V5.31L10.69 1.5ZM8 4a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 4Zm0 8a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></svg>Caution</span><br></p><p><span>禁止超过一个小时或超过50cm的尿袋悬挂。</span></p></div><p><span>对于男M来说，排便控制最大的问题其实是没什么快感...当然，肛塞+贞操裤也不失为一种玩法...</span></p><p><span>	</span><span> 但是这张玩法貌似更多是出于“可以防止M跑路”的初衷... </span></p><p><span>	</span><span>对新手进行排尿控制时推荐使用医用导尿管、注射用生理盐水与医用石蜡油，并在无菌环境下拆除 尿袋的止回阀，灌入生理盐水，并将尿袋悬挂在高于膀胱50cm处，利用高度差自然产生的压力来play...</span></p><h1 id='完'><span>完</span></h1><p><span>转载于：</span><a href='https://github.com/HongYunCloud/OpenDomGuide' target='_blank' class='url'>https://github.com/HongYunCloud/OpenDomGuide</a></p><p><span>MD重构：class-bin-data </span><a href='https://github.com/class-bin-data' target='_blank' class='url'>https://github.com/class-bin-data</a></p></div></div>
+</body>
+</html>
