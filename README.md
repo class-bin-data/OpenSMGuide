@@ -8,7 +8,7 @@
 >
 > 仅供参考，操作后果自负
 
-网页版链接:https://sm.336424.xyz或https://sm.oc99.top
+网页版链接:https://sm.336424.xyz 或 https://sm.oc99.top
 
 什么？你说想要电子版PDF？满足你：[从Github释放区下载挑选最新版PDF](https://github.com/class-bin-data/OpenSMGuide/releases/latest)
 
