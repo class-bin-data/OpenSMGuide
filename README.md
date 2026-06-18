@@ -2,6 +2,8 @@
 大S速成——如何调教香香软软的小男娘  
 转载的网页版，原项目链接：[大S速成——如何调教香香软软的小男娘](https://github.com/HongYunCloud/OpenDomGuide)
 
+![Alt](https://repobeats.axiom.co/api/embed/ec2a19413364443b818f32cf2a5f3cd7f717619f.svg "Repobeats analytics image")
+
 于2026年5月30日开始创建：女版的SM教程。
 
 > [!CAUTION]
